@@ -1,4 +1,4 @@
-import styles from "../styles/Playlist.module.css";
+import styles from "../styles/Post.module.css";
 
 import { useCallback, useContext, useEffect, useState } from "react";
 import { API_URL } from "../utils/consts";
