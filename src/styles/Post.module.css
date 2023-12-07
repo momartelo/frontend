@@ -4,8 +4,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background: white;
+  width: 400px;
 
-  width: 420px;
+  width: 600px;
 }
 
 .section {

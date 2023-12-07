@@ -29,6 +29,9 @@ const PlayItem = ({ post, getPost, onClick }) => {
           <span>{post.comments.length}</span>
         </p>
       </section>
+      <picture>
+        <img src={post.image} alt="" />
+      </picture>
       <div>
         <Link
           style={{ fontSize: "30px", color: "green" }}
@@ -41,7 +44,7 @@ const PlayItem = ({ post, getPost, onClick }) => {
             e.stopPropagation();
           }}
           data-bs-toggle="modal"
-          data-bs-target={"#modal" + playlist._id}
+          data-bs-target={"#modal" + post._id}
           style={{ fontSize: "30px", color: "red" }}
         >
           <HiOutlineTrash />

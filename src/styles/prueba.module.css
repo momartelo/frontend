@@ -1,0 +1,84 @@
+/* prueba.module.css */
+
+body,
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-content: stretch;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif; /* Cambia la fuente según tus preferencias */
+  background: #ddd;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto; /* Mantén el margen superior en 0 y el margen horizontal centrado */
+  padding: 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: 80vh;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+/* Navbar styles */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* PostItem styles */
+.item {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.item:hover {
+  background-color: #f0f0f0;
+}
+
+picture {
+  margin-right: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading styles */
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Add more styles as needed */

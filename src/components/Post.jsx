@@ -3,25 +3,20 @@ import PlayItem from "./PlayItem";
 import { Link, useNavigate } from "react-router-dom";
 
 const Post = ({ posts, getPost }) => {
-  // la información que NO vamos a modificar.
   const [search, setSearch] = useState("");
   const [filterPosts, setFilterPosts] = useState(posts);
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    const filtered = posts.filter((play) => {
-      return play.title.toLowerCase().includes(search.toLowerCase());
+    const filtered = posts.filter((post) => {
+      return post.title.toLowerCase().includes(search.toLowerCase());
     });
 
     setFilterPosts(filtered);
   }, [search, posts]);
 
   return (
-    <div style={{ minWidth: "420px" }}>
-      <Link to="/post/new" className="btn btn-success">
-        Crear
-      </Link>
+    <div style={{ minWidth: "300px" }}>
       <input
         type="search"
         className="form-control"
@@ -31,6 +26,9 @@ const Post = ({ posts, getPost }) => {
           setSearch(e.target.value);
         }}
       />
+      <Link to="/post/new" className="btn btn-success">
+        Crear
+      </Link>
       <>
         {filterPosts.map((post) => {
           return (

@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Navbar
+          BLOG de Viajes
         </Link>
         <button
           className="navbar-toggler"
@@ -27,12 +27,12 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/post">
-                Post
+                Posteos de Viajes
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/post/new">
-                Crer Post
+                Crear Post
               </Link>
             </li>
           </ul>

@@ -6,7 +6,7 @@ function AuthProvider({ children }) {
   const [auth, setAuth] = useState(undefined);
 
   const login = ({ user, token }) => {
-    setAuth({ user, token });
+    setAuth({ user, token, isAuthenticated: true });
 
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
@@ -25,6 +25,7 @@ function AuthProvider({ children }) {
 
       // si no tenemos alguno de los dos campos en el localStorage borramos todo
       if (!user || !token) {
+        console.log("No hay usuario o token");
         localStorage.removeItem("user");
         localStorage.removeItem("token");
 
@@ -32,6 +33,7 @@ function AuthProvider({ children }) {
         return;
       }
 
+      console.log("Usuario authenticated", user);
       setAuth({ user, token });
     }, 1000);
   }, []);

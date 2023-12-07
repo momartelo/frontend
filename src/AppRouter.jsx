@@ -7,6 +7,7 @@ import PostPage from "./pages/PostPage";
 import PrivateRoutes from "./components/PrivateRoutes";
 import NewPost from "./pages/NewPost";
 import CommentPage from "./pages/CommentsPage";
+import RequireAuth from "./providers/RequireAuth";
 
 function AppRouter() {
   return (
