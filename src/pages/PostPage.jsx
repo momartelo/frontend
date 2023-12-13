@@ -1,11 +1,12 @@
 import styles from "../styles/prueba.module.css";
-
 import { useCallback, useContext, useEffect, useState } from "react";
 import { API_URL } from "../utils/consts";
 import { AuthContext } from "../providers/AuthProvider";
 import Post from "../components/Post";
-import Navbar from "../components/Navbar";
 import RequireAuth from "../providers/RequireAuth";
+import { Sidebar } from "../components/Sidebar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function PostPage() {
   const [posts, setPosts] = useState([]);
@@ -32,11 +33,13 @@ function PostPage() {
     <RequireAuth
       element={
         <div className={styles.container}>
-          <Navbar />
-          <h1>Mis Posteos</h1>
+          <Header />
+          <Sidebar />
+          <h2>Posteos</h2>
           <main className={styles.section}>
             <Post getPost={getPost} posts={posts} />
           </main>
+          <Footer />
         </div>
       }
     />

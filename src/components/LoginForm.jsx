@@ -80,7 +80,6 @@ function LoginForm() {
 
         <button>Login</button>
 
-        {/* Enlace a la página de registro */}
         <p>
           No tienes una cuenta? <Link to="/register">Regístrate</Link>
         </p>

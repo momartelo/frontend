@@ -5,7 +5,7 @@ import { API_URL } from "../utils/consts";
 
 const DeletePostModel = ({ postId, getPost }) => {
   const navigate = useNavigate();
-  const [postDeleted, setPostDeleted] = useState(false);
+  // const [postDeleted, setPostDeleted] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleDelete = () => {

@@ -1,5 +1,4 @@
 import styles from "../styles/AuthForm.module.css";
-
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../utils/consts";
@@ -11,8 +10,6 @@ function RegisterForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const { avatar, email, username, password } = e.target.elements;
 
     const formData = new FormData(e.target);
 

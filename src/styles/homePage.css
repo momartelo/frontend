@@ -1,0 +1,23 @@
+.containerHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto; /* Mantén el margen superior en 0 y el margen horizontal centrado */
+  padding: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  height: 100vh;
+  background-image: url(../img/concepto-viaje-alrededor-mundo-puntos-referencia-fondo-blanco_41969-15420.jpg);
+  background-repeat: no-repeat;
+  background-size: 1400px 800px;
+  background-position: 50% 70%;
+  width: 100vh;
+}
+
+.containerHome > div {
+  display: flex;
+}
+
+.containerHome > div > h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}

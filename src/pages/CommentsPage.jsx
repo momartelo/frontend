@@ -3,8 +3,11 @@ import { useParams } from "react-router-dom";
 import { API_URL } from "../utils/consts";
 import { AuthContext } from "../providers/AuthProvider";
 import { HiOutlineTrash } from "react-icons/hi";
-import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { Sidebar } from "../components/Sidebar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import styles from "../styles/Comments.module.css";
 //import styles from "../styles/AuthForm.module.css";
 
 const CommentsPage = () => {
@@ -74,10 +77,12 @@ const CommentsPage = () => {
   };
 
   useEffect(() => {
+    console.log("Fetching post. postId:", postId, "auth:", auth);
     getPost();
   }, [postId, auth]);
 
   const handleDeleteComment = (commentId) => {
+    console.log("Deleting comment. postId:", postId, "commentId:", commentId);
     fetch(`${API_URL}/comments/${postId}/${commentId}`, {
       method: "DELETE",
       headers: {
@@ -101,11 +106,24 @@ const CommentsPage = () => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
+    const commnetText = formData.get("comment");
+
+    if (!commnetText.trim()) {
+      alert("No se puede crear un comentario vacio");
+      return;
+    }
+    console.log(
+      "Creating new comment. postId:",
+      postId,
+      "commentText:",
+      commnetText
+    );
 
     fetch(`${API_URL}/comments/${postId}`, {
       method: "POST",
       body: JSON.stringify({
-        comment: formData.get("comment"),
+        comment: commnetText,
+        //comment: formData.get("comment"),
         //author: formData.get("author"),
       }),
       headers: {
@@ -120,7 +138,6 @@ const CommentsPage = () => {
         return res.json();
       })
       .then((data) => {
-        // Lógica después de la creación del comentario (si es necesario)
         getPost();
       })
       .catch((error) => {
@@ -134,11 +151,20 @@ const CommentsPage = () => {
 
   return (
     <div>
-      <Navbar />
-      <h1>{post.title}</h1>
+      <Header />
+      <Sidebar />
+
+      {post && (
+        <div className={styles.divcomments}>
+          <h1>{post.title}</h1>
+          <h2>{post.description}</h2>
+          <img src={post.image} alt="" />
+        </div>
+      )}
+
       <form onSubmit={handleCreateNewComment} ref={formRef}>
         <div>
-          <label>Comentario:</label>
+          <label>Comentarios:</label>
           <input type="text" name="comment" placeholder="comentario" />
         </div>
         {/* <div className={styles.inputGroup}>
@@ -150,9 +176,11 @@ const CommentsPage = () => {
         return (
           <div key={comment.id} className="comment">
             <h2>{comment.name}</h2>
-            {/* <p>
-              <i>{comment.artist}</i> {music.year}
-            </p> */}
+            {
+              <p>
+                <i>{comment.comment}</i> {comment.date}
+              </p>
+            }
             <button
               className="delete-button"
               onClick={() => handleDeleteComment(comment._id)}
@@ -162,6 +190,7 @@ const CommentsPage = () => {
           </div>
         );
       })}
+      <Footer />
     </div>
   );
 };

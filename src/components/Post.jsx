@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PlayItem from "./PlayItem";
 import { Link, useNavigate } from "react-router-dom";
+import styles from "../styles/Post.module.css";
 
 const Post = ({ posts, getPost }) => {
   const [search, setSearch] = useState("");
@@ -9,26 +10,34 @@ const Post = ({ posts, getPost }) => {
 
   useEffect(() => {
     const filtered = posts.filter((post) => {
-      return post.title.toLowerCase().includes(search.toLowerCase());
+      const searchTerm = search.toLowerCase();
+      return (
+        post.title.toLowerCase().includes(searchTerm) ||
+        post.description.toLowerCase().includes(searchTerm)
+      );
     });
 
     setFilterPosts(filtered);
   }, [search, posts]);
 
   return (
-    <div style={{ minWidth: "300px" }}>
-      <input
-        type="search"
-        className="form-control"
-        placeholder="Search"
-        value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
-      <Link to="/post/new" className="btn btn-success">
-        Crear
-      </Link>
+    <div className={styles.postcontainer}>
+      <div>
+        <input
+          type="search"
+          className={styles.postinput}
+          placeholder=" Busqueda automatica por nombre posteo"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+        <span className="material-symbols-outlined">search</span>
+      </div>
+      <article>
+        <Link to="/post/new">Crear Post Nuevo</Link>
+      </article>
+
       <>
         {filterPosts.map((post) => {
           return (

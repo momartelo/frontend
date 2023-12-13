@@ -23,7 +23,6 @@ function AuthProvider({ children }) {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = localStorage.getItem("token");
 
-      // si no tenemos alguno de los dos campos en el localStorage borramos todo
       if (!user || !token) {
         console.log("No hay usuario o token");
         localStorage.removeItem("user");

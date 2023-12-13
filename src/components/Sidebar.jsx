@@ -1,10 +1,21 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { FaHome, FaList, FaEnvelope, FaCog } from "react-icons/fa";
 import "../styles/styles.css";
 
-const navItems = ["home", "settings", "backup", "mail", "cloud", "layers"];
+const navItems = [
+  { name: "Inicio", icon: <FaHome />, path: "/" },
+  { name: "Posteos", icon: <FaList />, path: "/post" },
+  { name: "Correo", icon: <FaEnvelope />, path: "/email" },
+  { name: "Configuración", icon: <FaCog />, path: "/settings" },
+];
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className={`sidebar ${isOpen ? "open" : ""}`}>
@@ -19,14 +30,20 @@ export const Sidebar = () => {
               {isOpen ? "close" : "menu"}
             </span>
           </button>
-          {/* <img src={logo} className="sidebar-logo" alt="Logo" /> */}
         </header>
         <nav className="sidebar-menu">
           {navItems.map((item) => (
-            <button key={item} type="button" className="sidebar-button">
-              <span className="material-symbols-outlined icono">{item}</span>
-              <p className="texto-sidebar">{item}</p>
-            </button>
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className="sidebar-button"
+              activeclassname="active"
+            >
+              <span className="material-symbols-outlined icono">
+                {item.icon}
+              </span>
+              <p className="texto-sidebar">{item.name}</p>
+            </NavLink>
           ))}
         </nav>
       </div>

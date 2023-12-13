@@ -1,0 +1,37 @@
+body > div > div > header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 1000;
+  background-color: white;
+}
+
+body > div > div > header > img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+body > div > div > header > div {
+  flex: 1;
+  text-align: center;
+}
+
+body > div > div > header > div > h3 {
+  margin: 0;
+  font-size: 2rem; /* Tamaño de fuente */
+  color: #3498db; /* Color del texto */
+  font-family: "Arial", sans-serif; /* Fuente */
+  text-transform: uppercase; /* Convertir el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra del texto */
+  transition: color 0.3s ease-in-out; /* Transición de color suave */
+}
+
+body > div > div > header > div > h3:hover {
+  color: #e74c3c; /* Cambiar color al pasar el ratón sobre el texto */
+}

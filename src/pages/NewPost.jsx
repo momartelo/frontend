@@ -1,9 +1,9 @@
 import { useContext, useId, useState } from "react";
-import styles from "../styles/AuthForm.module.css";
+import styles from "../styles/prueba.module.css";
 import { API_URL } from "../utils/consts";
 import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import { Sidebar } from "../components/Sidebar";
 
 const NewPost = () => {
   const titleId = useId();
@@ -51,12 +51,12 @@ const NewPost = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div className={styles.container}>
+      <Sidebar />
       <h2>Crear un nuevo Post</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.inputGroup}>
-          <label htmlFor={titleId}>Title:</label>
+          <label htmlFor={titleId}>Titulo:</label>
           <input
             type="text"
             id={titleId}
@@ -77,7 +77,7 @@ const NewPost = () => {
           />
         </div>
         <div className={styles.inputGroup}>
-          <label htmlFor={imageId}>Imagen URL:</label>
+          <label htmlFor={imageId}>Imagen:</label>
           <input
             type="text"
             id={imageId}
@@ -88,7 +88,7 @@ const NewPost = () => {
             }}
           />
         </div>
-        <button type="submit">Create</button>
+        <button type="submit">Crear</button>
       </form>
     </div>
   );
