@@ -34,7 +34,7 @@ const Post = ({ posts, getPost }) => {
         />
         <span className="material-symbols-outlined">search</span>
       </div>
-      <article>
+      <article className={styles.postarticle}>
         <Link to="/post/new">Crear Post Nuevo</Link>
       </article>
 

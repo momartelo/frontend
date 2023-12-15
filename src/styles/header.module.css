@@ -1,4 +1,4 @@
-body > div > div > header {
+.headercomponent {
   position: fixed;
   display: flex;
   align-items: center;
@@ -8,20 +8,20 @@ body > div > div > header {
   padding: 10px;
   z-index: 1000;
   background-color: white;
+  justify-content: space-between;
 }
 
-body > div > div > header > img {
+.headercomponent > img {
   width: 80px;
   height: 80px;
   margin-right: 10px;
 }
 
-body > div > div > header > div {
-  flex: 1;
+.headercomponent > div {
   text-align: center;
 }
 
-body > div > div > header > div > h3 {
+.headercomponent > div > h3 {
   margin: 0;
   font-size: 2rem; /* Tamaño de fuente */
   color: #3498db; /* Color del texto */
@@ -32,6 +32,12 @@ body > div > div > header > div > h3 {
   transition: color 0.3s ease-in-out; /* Transición de color suave */
 }
 
-body > div > div > header > div > h3:hover {
+.headercomponent > div > h3:hover {
   color: #e74c3c; /* Cambiar color al pasar el ratón sobre el texto */
+}
+
+.headercomponent > div > button {
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
 }

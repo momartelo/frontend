@@ -19,31 +19,6 @@ const CommentsPage = () => {
   const { auth } = useContext(AuthContext);
   const formRef = useRef(null);
 
-  // const getPost = () => {
-  //   fetch(`${API_URL}/post/${postId}`, {
-  //     headers: {
-  //       Authorization: auth.token,
-  //     },
-  //   })
-  //     .then((res) => {
-  //       if (res.status !== 200) {
-  //         throw new Error(`Error ${res.status}: ${res.statusText}`);
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       if (data) {
-  //         setPost(data);
-  //       } else {
-  //         console.warn("El post not found");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error al traer el posteo:", error.message);
-  //       // Puedes mostrar un mensaje de error al usuario o manejarlo de otra manera
-  //     });
-  // };
-
   const getPost = async () => {
     try {
       const response = await fetch(`${API_URL}/post/${postId}`, {

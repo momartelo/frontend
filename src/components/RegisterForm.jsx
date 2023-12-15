@@ -1,7 +1,8 @@
-import styles from "../styles/AuthForm.module.css";
+import styles from "../styles/Register.module.css";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../utils/consts";
+import { Link } from "react-router-dom";
 
 function RegisterForm() {
   const ref = useRef(null);
@@ -41,21 +42,28 @@ function RegisterForm() {
 
   return (
     <div>
-      <h2>Registrar</h2>
-      <form onSubmit={handleSubmit} ref={ref} className={styles.form}>
-        <div className={styles.inputGroup}>
-          <input type="url" placeholder="www.my-avatar.com" name="avatar" />
+      <h2>Registrarse</h2>
+      <form onSubmit={handleSubmit} ref={ref} className={styles.formregister}>
+        <div className={styles.inputregister}>
+          <label>URL Imagen Avatar</label>
+          <input type="url" placeholder="URL imagen" name="avatar" />
         </div>
-        <div className={styles.inputGroup}>
+        <div className={styles.inputregister}>
+          <label>Email</label>
           <input type="email" placeholder="my-email@email.com" name="email" />
         </div>
-        <div className={styles.inputGroup}>
+        <div className={styles.inputregister}>
+          <label>Username</label>
           <input type="text" placeholder="nombre" name="username" />
         </div>
-        <div className={styles.inputGroup}>
+        <div className={styles.inputregister}>
+          <label>Password</label>
           <input type="password" placeholder="*******" name="password" />
         </div>
-        <button>Registrar</button>
+        <button>Registrarse</button>
+        <p>
+          ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link>.
+        </p>
       </form>
     </div>
   );

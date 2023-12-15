@@ -4,7 +4,7 @@ import { API_URL } from "../utils/consts";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
-import styles from "../styles/AuthForm.module.css";
+import styles from "../styles/Login.module.css";
 
 function LoginForm() {
   const ref = useRef(null);
@@ -57,8 +57,8 @@ function LoginForm() {
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit} ref={ref} className={styles.form}>
-        <div className={styles.inputGroup}>
+      <form onSubmit={handleSubmit} ref={ref} className={styles.formlogin}>
+        <div className={styles.inputlogin}>
           <label htmlFor={emailRef}>Email:</label>
           <input
             type="email"
@@ -68,7 +68,7 @@ function LoginForm() {
           />
         </div>
 
-        <div className={styles.inputGroup}>
+        <div className={styles.inputlogin}>
           <label htmlFor={passwordRef}>Password:</label>
           <input
             type="password"
